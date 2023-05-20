@@ -1,4 +1,4 @@
-import {useNavigate, useParams} from "react-router-dom";
+import {Navigate, useNavigate, useParams} from "react-router-dom";
 import {useAppDispatch, useAppSelector} from "../../../hook";
 import {PostControl} from "../../Pages/PostControl/PostControl";
 import {useEffect} from "react";
@@ -11,7 +11,7 @@ type ArticleControlContainerPropsType = {
 }
 
 export const PostControlContainer: React.FC<ArticleControlContainerPropsType> = ({isEditPage = false}) => {
-    const {user} = useAppSelector(state => state.auth);
+    const {user, authId, isAuth, authRole} = useAppSelector(state => state.auth);
     const {post, loading, error} = useAppSelector(state => state.posts);
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
@@ -61,6 +61,10 @@ export const PostControlContainer: React.FC<ArticleControlContainerPropsType> = 
         dispatch(destroyPost(id)).then(() => {
             navigate('/posts');
         });
+    }
+
+    if (!isAuth || (authId !== post?.id && authRole !== 'admin' && isEditPage)) {
+        return <Navigate to={'/'}/>;
     }
 
     return (

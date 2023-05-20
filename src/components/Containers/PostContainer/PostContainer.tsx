@@ -9,7 +9,7 @@ const PostContainer: React.FC = () => {
     const {id} = useParams();
 
     const dispatch = useAppDispatch();
-    const {post, loading: postLoading, error: postError} = useAppSelector(state => state.posts);
+    const {post, loading: postLoading} = useAppSelector(state => state.posts);
     const {authRole, authId} = useAppSelector(state => state.auth);
 
     useEffect(() => {

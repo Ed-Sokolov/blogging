@@ -7,6 +7,7 @@ import {PostType} from "../../Types/post";
 import * as Yup from 'yup';
 import {CustomErrorMessage} from "../../Elements/Inputs/CustomErrorMessage";
 import {Loading} from "../../Elements/Loading/Loading";
+import {useEffect} from "react";
 
 type PostControlProps = {
     isEditPage: boolean;
@@ -38,11 +39,13 @@ export const PostControl: React.FC<PostControlProps> = ({
                                                         }) => {
     const navigate = useNavigate();
 
+
+
     const initialValues: MyFormikType = {
         title: isEditPage && post !== undefined ? post.title : '',
         text: isEditPage && post !== undefined ? post.text : '',
         photo: null,
-        isOpenedComments: true,
+        isOpenedComments: isEditPage && post !== undefined ? post.isOpenedComments : true,
     }
 
     const formik = useFormik({
@@ -141,7 +144,7 @@ export const PostControl: React.FC<PostControlProps> = ({
                             <p>opened comments</p>
                         </div>
                         <div className="buttons_field">
-                            <button onClick={() => prevPage(navigate)}>cancel</button>
+                            <button onClick={() => prevPage(navigate)} type="button">cancel</button>
                             <button type="submit" disabled={loading}>{loading ?
                                 <Loading size='32px' color='#fff'/> : isEditPage ? 'apply' : 'add'}
                             </button>

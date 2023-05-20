@@ -73,8 +73,6 @@ export const updatePost = createAsyncThunk<number, UpdatePostType, { rejectValue
     async function (data, {rejectWithValue}) {
         const formData = new FormData();
 
-        console.log(data);
-
         for (const name in data) {
             formData.append(name, data[name])
         }

@@ -1,5 +1,5 @@
 import {ReactElement} from "react";
-import {useLocation, useNavigate} from "react-router-dom";
+import {Navigate, useLocation, useNavigate} from "react-router-dom";
 import {SignInPage} from "../../Pages/Sign/Sections/SignInPage";
 import {SignUpPage} from "../../Pages/Sign/Sections/SignUpPage";
 import {Sign} from "../../Pages/Sign/Sign";
@@ -10,7 +10,7 @@ import {validationSchemaForLogin, validationSchemaForRegister} from "../../Valid
 export type SignPageType = '/sign-in' | '/sign-up';
 
 export const SignContainer: React.FC = () => {
-    const {loading} = useAppSelector(state => state.auth);
+    const {loading, isAuth} = useAppSelector(state => state.auth);
     const dispatch = useAppDispatch();
     const pathname = useLocation().pathname as SignPageType;
     const navigate = useNavigate();
@@ -60,6 +60,10 @@ export const SignContainer: React.FC = () => {
                                 validationSchemaForLogin={validationSchemaForLogin} loading={loading}/>,
         "/sign-up": <SignUpPage signUpValues={signUpValues} changePage={changePage} handleRegister={handleRegister}
                                 validationSchemaForRegister={validationSchemaForRegister} loading={loading}/>
+    }
+
+    if (isAuth) {
+        return <Navigate to={'/'} />
     }
 
     return (

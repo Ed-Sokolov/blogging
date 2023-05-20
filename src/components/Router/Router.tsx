@@ -1,5 +1,5 @@
 import {useEffect} from 'react';
-import {Route, Routes, useLocation} from 'react-router-dom';
+import {Navigate, Route, Routes, useLocation} from 'react-router-dom';
 import {useAppDispatch} from '../../hook';
 import {PostControlContainer} from '../Containers/PostControlContainer/PostControlContainer';
 import PostContainer from '../Containers/PostContainer/PostContainer';
@@ -34,6 +34,7 @@ export const Routing: React.FC = () => {
             <Route path="/profile/:id" element={<ProfileContainer/>}/>
             <Route path="/profile" element={<ProfileContainer/>}/>
             <Route path="/profile/setting" element={<SettingContainer/>}/>
+            <Route path="*" element={<Navigate to={'/'} replace/>}/>
         </Routes>
     )
 }

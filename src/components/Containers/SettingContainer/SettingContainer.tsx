@@ -3,7 +3,7 @@ import {Setting} from "../../Pages/Setting/Setting"
 import {useEffect, useState} from "react";
 import {changeBio, destroyUser, getUser, newAvatar, removeAvatar} from "../../api/AsyncUser";
 import {validationSchemaForAbout, validationSchemaForAvatar} from "../../Validations";
-import {useNavigate} from "react-router-dom";
+import {Navigate, useNavigate} from "react-router-dom";
 import {checkAuthentication} from "../../api/AsyncAuth";
 
 export type AboutDataType = {
@@ -20,7 +20,7 @@ export type SettingNavType = 'avatar' | 'about you' | 'setups';
 
 export const SettingContainer: React.FC = () => {
     const [settingNav, setSettingNav] = useState<SettingNavType>('avatar');
-    const {user, authId, loading} = useAppSelector(state => state.auth);
+    const {user, authId, loading, isAuth} = useAppSelector(state => state.auth);
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
 
@@ -77,6 +77,10 @@ export const SettingContainer: React.FC = () => {
 
     const changeSettingNav = (item: SettingNavType) => {
         setSettingNav(item);
+    }
+
+    if (!isAuth) {
+        return <Navigate to={'/sign-in'} />
     }
 
     return (
