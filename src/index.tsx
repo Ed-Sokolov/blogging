@@ -1,22 +1,23 @@
 import React from 'react';
-import { Provider } from 'react-redux';
+import {Provider} from 'react-redux';
 import store from './components/Store';
 import ReactDOM from 'react-dom/client';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import { BrowserRouter } from 'react-router-dom';
+import {HashRouter} from 'react-router-dom';
 import ScrollToTop from './ScrollToTop';
 
 const root = ReactDOM.createRoot(
-  document.getElementById('root') as HTMLElement
+    document.getElementById('root') as HTMLElement
 );
 root.render(
-  <Provider store={store}>
-    <BrowserRouter>
-      <ScrollToTop />
-      <App />
-    </BrowserRouter>
-  </Provider>
+    <HashRouter>
+        <Provider store={store}>
+
+            <ScrollToTop/>
+            <App/>
+        </Provider>
+    </HashRouter>
 );
 
 // If you want to start measuring performance in your app, pass a function
