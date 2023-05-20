@@ -9,7 +9,7 @@ type UpdatePostType = AddPostType & { postId: number };
 export const getPosts = createAsyncThunk<PostType[], undefined, { rejectValue: string }>(
     'posts/getPosts',
     async function (_, {rejectWithValue}) {
-        const response = await fetch('http://edsokolov-001-site1.atempurl.com/api/Posts');
+        const response = await fetch('https://edsokolov-001-site1.atempurl.com/api/Posts');
 
         if (!response.ok) {
             return rejectWithValue('Server Error!');
@@ -22,7 +22,7 @@ export const getPosts = createAsyncThunk<PostType[], undefined, { rejectValue: s
 export const getPopularPosts = createAsyncThunk<PostType[], undefined, { rejectValue: string }>(
     'posts/getPopularPosts',
     async function (_, {rejectWithValue}) {
-        const response = await fetch('http://edsokolov-001-site1.atempurl.com/api/Posts/popular');
+        const response = await fetch('https://edsokolov-001-site1.atempurl.com/api/Posts/popular');
 
         if (!response.ok) {
             return rejectWithValue('Server Error!');
@@ -35,7 +35,7 @@ export const getPopularPosts = createAsyncThunk<PostType[], undefined, { rejectV
 export const getPost = createAsyncThunk<PostType, number, { rejectValue: string }>(
     'posts/getPost',
     async function (id, {rejectWithValue}) {
-        const response = await fetch(`http://edsokolov-001-site1.atempurl.com/api/Posts/${id}`);
+        const response = await fetch(`https://edsokolov-001-site1.atempurl.com/api/Posts/${id}`);
 
         if (!response.ok) {
             return rejectWithValue('Can\'t add task. Server Error!');
@@ -54,7 +54,7 @@ export const addNewPost = createAsyncThunk<number, AddPostType, { rejectValue: s
             formData.append(name, data[name])
         }
 
-        const response = await fetch('http://edsokolov-001-site1.atempurl.com/api/Posts', {
+        const response = await fetch('https://edsokolov-001-site1.atempurl.com/api/Posts', {
             method: 'POST',
             headers: {},
             body: formData
@@ -79,7 +79,7 @@ export const updatePost = createAsyncThunk<number, UpdatePostType, { rejectValue
             formData.append(name, data[name])
         }
 
-        const response = await fetch(`http://edsokolov-001-site1.atempurl.com/api/Posts/${data.postId}/edit`, {
+        const response = await fetch(`https://edsokolov-001-site1.atempurl.com/api/Posts/${data.postId}/edit`, {
             method: 'PATCH',
             headers: {},
             body: formData
@@ -96,7 +96,7 @@ export const updatePost = createAsyncThunk<number, UpdatePostType, { rejectValue
 export const destroyPost = createAsyncThunk<number, number, { rejectValue: string }>(
     'posts/destroyPost',
     async function (postId, {rejectWithValue}) {
-        const response = await fetch(`http://edsokolov-001-site1.atempurl.com/api/Posts/${postId}`, {
+        const response = await fetch(`https://edsokolov-001-site1.atempurl.com/api/Posts/${postId}`, {
             method: 'DELETE'
         })
 

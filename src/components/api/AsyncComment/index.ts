@@ -4,7 +4,7 @@ import {CommentFormType, CommentType} from "../../Types/comment";
 export const getComments = createAsyncThunk<CommentType[], number, { rejectValue: string }> (
     'comments/getComments',
     async function (articleId, {rejectWithValue}) {
-        const response = await fetch(`http://edsokolov-001-site1.atempurl.com/api/Comments/${articleId}`);
+        const response = await fetch(`https://edsokolov-001-site1.atempurl.com/api/Comments/${articleId}`);
 
         if (!response.ok) {
             return rejectWithValue('Server Error!');
@@ -23,7 +23,7 @@ export const addComment = createAsyncThunk<number, CommentFormType, {rejectValue
             formData.append(name, data[name]);
         }
 
-        const response = await fetch('http://edsokolov-001-site1.atempurl.com/api/Comments', {
+        const response = await fetch('https://edsokolov-001-site1.atempurl.com/api/Comments', {
             method: 'POST',
             body: formData
         })
@@ -39,7 +39,7 @@ export const addComment = createAsyncThunk<number, CommentFormType, {rejectValue
 export const destroyComment = createAsyncThunk<number, number, { rejectValue: string }>(
     'comments/destroyComment',
     async function (commentId, {rejectWithValue}) {
-        const response = await fetch(`http://edsokolov-001-site1.atempurl.com/api/Comments/${commentId}`, {
+        const response = await fetch(`https://edsokolov-001-site1.atempurl.com/api/Comments/${commentId}`, {
             method: 'DELETE'
         })
 

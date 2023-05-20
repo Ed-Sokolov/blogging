@@ -19,7 +19,7 @@ export const login = createAsyncThunk<UserType, LoginType, { rejectValue: any }>
             formData.append(name, data[name])
         }
 
-        const response = await fetch('http://edsokolov-001-site1.atempurl.com/api/user/login', {
+        const response = await fetch('https://edsokolov-001-site1.atempurl.com/api/user/login', {
             method: 'POST',
             headers: {},
             body: formData
@@ -49,7 +49,7 @@ export const register = createAsyncThunk<boolean, RegisterType, { rejectValue: a
             formData.append(name, data[name])
         }
 
-        const response = await fetch('http://edsokolov-001-site1.atempurl.com/api/user/register', {
+        const response = await fetch('https://edsokolov-001-site1.atempurl.com/api/user/register', {
             method: 'POST',
             headers: {},
             body: formData
@@ -73,7 +73,7 @@ export const checkAuthentication = createAsyncThunk<UserType, undefined, { rejec
             return rejectWithValue('Token doesn\'t exist');
         }
 
-        const response = await fetch('http://edsokolov-001-site1.atempurl.com/api/user/check-authentication', {
+        const response = await fetch('https://edsokolov-001-site1.atempurl.com/api/user/check-authentication', {
             headers: {
                 Authorization: `Bearer ${token}`,
             },
@@ -98,7 +98,7 @@ export const logoutUser = createAsyncThunk<undefined, undefined, { rejectValue: 
                 return rejectWithValue('Token doesn\'t exist');
             }
 
-            const response = await fetch('http://edsokolov-001-site1.atempurl.com/api/user/logout', {
+            const response = await fetch('https://edsokolov-001-site1.atempurl.com/api/user/logout', {
                 method: 'POST',
                 headers: {
                     Authorization: `Bearer ${token}`,
