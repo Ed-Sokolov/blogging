@@ -1,0 +1,25 @@
+{
+  "files": {
+    "main.css": "/blogging/static/css/main.d778b83e.css",
+    "main.js": "/blogging/static/js/main.61ce6cfc.js",
+    "static/js/787.a361b86b.chunk.js": "/blogging/static/js/787.a361b86b.chunk.js",
+    "static/media/mountains.jpg": "/blogging/static/media/mountains.3f7158bbd25332859807.jpg",
+    "static/media/Inter.ttf": "/blogging/static/media/Inter.aadb65ac45347ff46699.ttf",
+    "static/media/AndikaNewBasic.ttf": "/blogging/static/media/AndikaNewBasic.52027a7a99c5e60078e5.ttf",
+    "static/media/background-blue.png": "/blogging/static/media/background-blue.a9027d35f7fb29d2e967.png",
+    "static/media/background-yellow.png": "/blogging/static/media/background-yellow.d5a18d41c494c8ad6654.png",
+    "static/media/icons.svg": "/blogging/static/media/icons.548e1776345c39f5bb48cad248308b09.svg",
+    "static/media/Numans-Regular.ttf": "/blogging/static/media/Numans-Regular.02c0398a2ad00ea5cdd4.ttf",
+    "static/media/background_signin_page.png": "/blogging/static/media/background_signin_page.1df2b4357037f3871b5e.png",
+    "static/media/background_signup_page.png": "/blogging/static/media/background_signup_page.f83fbdbea43e86d92e9d.png",
+    "static/media/background_setting_nav.png": "/blogging/static/media/background_setting_nav.351d046a692c78dc5957.png",
+    "index.html": "/blogging/index.html",
+    "main.d778b83e.css.map": "/blogging/static/css/main.d778b83e.css.map",
+    "main.61ce6cfc.js.map": "/blogging/static/js/main.61ce6cfc.js.map",
+    "787.a361b86b.chunk.js.map": "/blogging/static/js/787.a361b86b.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d778b83e.css",
+    "static/js/main.61ce6cfc.js"
+  ]
+}
